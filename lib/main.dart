@@ -2,7 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'pages/auth/login_page.dart';
-import 'pages/dashboard_page.dart'; // Add your dashboard import
+import 'pages/auth/signup_page.dart';
+import 'pages/dashboard_page.dart';
+import 'pages/windows_wipe_page.dart';
+import 'pages/linux_wipe_page.dart';
+import 'pages/android_wipe_page.dart';
+import 'pages/certificates_page.dart';
+import 'pages/not_found_page.dart';
 import 'state/wipe_provider.dart';
 
 void main() {
@@ -29,15 +35,23 @@ class SecureWipeApp extends StatelessWidget {
           ),
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
+        // Use hash-based routing for GitHub Pages compatibility
         initialRoute: '/',
         routes: {
           '/': (context) => const LoginPage(),
+          '/signup': (context) => const SignupPage(),
           '/dashboard': (context) => const DashboardPage(),
-          // Add more routes here
+          '/windows-wipe': (context) => const WindowsWipePage(),
+          '/linux-wipe': (context) => const LinuxWipePage(),
+          '/android-wipe': (context) => const AndroidWipePage(),
+          '/certificates': (context) => const CertificatesPage(),
         },
-        // ⚡️ Important for GitHub Pages:
-        // Use hash-based navigation by using Navigator.pushNamed(context, '/dashboard')
-        // URLs will automatically be like /#/dashboard
+        // Handle unknown routes
+        onUnknownRoute: (settings) {
+          return MaterialPageRoute(
+            builder: (context) => const NotFoundPage(),
+          );
+        },
       ),
     );
   }

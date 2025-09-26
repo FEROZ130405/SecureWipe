@@ -28,9 +28,7 @@ class _LoginPageState extends State<LoginPage> {
     setState(() { _isSubmitting = true; });
     await Future.delayed(const Duration(milliseconds: 450));
     if (!mounted) return;
-    Navigator.of(context).pushReplacement(
-      MaterialPageRoute(builder: (_) => const DashboardPage()),
-    );
+    Navigator.of(context).pushReplacementNamed('/dashboard');
   }
 
   @override
@@ -84,9 +82,7 @@ class _LoginPageState extends State<LoginPage> {
                     const SizedBox(height: 8),
                     TextButton(
                       onPressed: _isSubmitting ? null : () {
-                        Navigator.of(context).push(
-                          MaterialPageRoute(builder: (_) => const SignupPage()),
-                        );
+                        Navigator.of(context).pushNamed('/signup');
                       },
                       child: const Text('Create an account'),
                     )
