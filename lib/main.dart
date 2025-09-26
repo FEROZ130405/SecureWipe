@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'pages/auth/login_page.dart';
-import 'pages/dashboard_page.dart';
+import 'pages/dashboard/dashboard_page.dart'; // Add your dashboard import
 import 'state/wipe_provider.dart';
 
 void main() {
@@ -29,20 +29,15 @@ class SecureWipeApp extends StatelessWidget {
           ),
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
-        // -----------------------------
-        // Enable hash-based routing for GitHub Pages
-        // -----------------------------
         initialRoute: '/',
         routes: {
           '/': (context) => const LoginPage(),
-          '/dashboard': (context) => const DashboardPage(), // your dashboard route
-          // Add other routes here if needed
+          '/dashboard': (context) => const DashboardPage(),
+          // Add more routes here
         },
-        // Enable hash-based URLs for web
-        routerDelegate: null,
-        routeInformationParser: null,
-        // Flutter Web will now use URLs like /#/dashboard instead of /dashboard
-        // which avoids white screens on GitHub Pages project sites
+        // ⚡️ Important for GitHub Pages:
+        // Use hash-based navigation by using Navigator.pushNamed(context, '/dashboard')
+        // URLs will automatically be like /#/dashboard
       ),
     );
   }
