@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'pages/auth/login_page.dart';
-import 'pages/dashboard/dashboard_page.dart'; // Add your dashboard import
+import 'pages/dashboard_page.dart'; // Add your dashboard import
 import 'state/wipe_provider.dart';
 
 void main() {
