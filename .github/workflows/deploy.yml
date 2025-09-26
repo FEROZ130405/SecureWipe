@@ -3,8 +3,13 @@ name: Build & Deploy Flutter Web to GitHub Pages
 on:
   push:
     branches:
-      - main   # change to 'master' if your default branch is master
+      - main
+      
+      # change to 'master' if your default branch is master
+permissions:
+  contents: write   
 
+  
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
